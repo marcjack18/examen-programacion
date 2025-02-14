@@ -37,6 +37,8 @@ public class VentanaPrincipal {
 	private JButton btnBorrarNumeroLista2;
 	private JTextField textFieldBorrar1;
 	private JTextField textFieldBorrar2;
+	private JButton btnBorrarLista;
+	private JButton btnBorrarLista2;
 
 	/**
 	 * Launch the application.
@@ -142,7 +144,7 @@ public class VentanaPrincipal {
 					int pos=Integer.parseInt(textFieldBorrar1.getText());
 					
 					lista.remove(pos);
-					if(lista.size()<0) {
+					if(lista.size()<=0) {
 						textFieldLista1.setText("Lista vacia");
 						}else {
 							textFieldLista1.setText(lista.toString());
@@ -156,7 +158,7 @@ public class VentanaPrincipal {
 					try {
 					int elemento=Integer.parseInt(textFieldBorrar1.getText());
 					lista.remove(lista.indexOf(elemento));
-					if(lista.size()<0) {
+					if(lista.size()<=0) {
 						textFieldLista1.setText("Lista vacia");
 						}else {
 							textFieldLista1.setText(lista.toString());
@@ -180,11 +182,11 @@ public class VentanaPrincipal {
 				case 0:
 					try {
 					int pos=Integer.parseInt(textFieldBorrar2.getText());
-					lista.remove(pos);
-					if(lista.size()<0) {
+					lista2.remove(pos);
+					if(lista2.size()<=0) {
 					textFieldLista2.setText("Lista vacia");
 					}else {
-						textFieldLista2.setText(lista.toString());
+						textFieldLista2.setText(lista2.toString());
 					}
 					
 					}catch(Exception e1) {
@@ -195,11 +197,11 @@ public class VentanaPrincipal {
 				case 1:
 					try {
 					int elemento=Integer.parseInt(textFieldBorrar2.getText());
-					lista.remove(lista.indexOf(elemento));
-					if(lista.size()<0) {
+					lista2.remove(lista2.indexOf(elemento));
+					if(lista2.size()<=0) {
 						textFieldLista2.setText("Lista vacia");
 						}else {
-							textFieldLista2.setText(lista.toString());
+							textFieldLista2.setText(lista2.toString());
 						}
 					}catch(Exception e2) {
 						JOptionPane.showMessageDialog(null,"El numero no esta en la lista");
@@ -209,6 +211,28 @@ public class VentanaPrincipal {
 		});
 		btnBorrarNumeroLista2.setBounds(88, 196, 262, 25);
 		frame.getContentPane().add(btnBorrarNumeroLista2);
+		
+		btnBorrarLista = new JButton("Borrar Lista1 entera");
+		btnBorrarLista.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lista.clear();
+				textFieldLista1.setText("Lista vacia");
+			}
+		});
+		btnBorrarLista.setBounds(268, 263, 189, 25);
+		frame.getContentPane().add(btnBorrarLista);
+		
+		btnBorrarLista2 = new JButton("Borrar Lista2 entera");
+		btnBorrarLista2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lista2.clear();
+				textFieldLista2.setText("Lista vacia");
+			}
+		});
+		btnBorrarLista2.setBounds(268, 312, 189, 25);
+		frame.getContentPane().add(btnBorrarLista2);
 		
 	}
 }
